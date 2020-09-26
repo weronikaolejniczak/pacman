@@ -4,21 +4,23 @@ import './style.css';
 
 class Ghost extends Component {
     state = {
+        direction: 'left',
         position: {
-            top: 50,
-            left: 50,
+            top: 50 * 4,
+            left: 50 * 3,
         }
     }
 
     render() {
         const {position} = this.state;
+        const {color} = this.props;
 
         return(
             <div 
                 className="ghost"
                 style={position}
             >
-                <Icon />
+                <Icon className={`ghost-${color}`} />
             </div>
         );
     }
