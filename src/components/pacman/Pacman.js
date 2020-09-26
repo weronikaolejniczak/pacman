@@ -88,7 +88,6 @@ class Pacman extends Component {
     }
 }
 
-/* można zapisać w static w ciele klasy */
 Pacman.defaultProps = {
     step: 50, // 50px
     size: 50, // pacman size: 50x50px
