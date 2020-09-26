@@ -4,6 +4,7 @@ import './style.css';
 
 class Ghost extends Component {
     state = {
+        color: this.props,
         direction: 'left',
         position: {
             top: 50 * 4,
