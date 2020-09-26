@@ -9,8 +9,6 @@ class Board extends Component {
                 {/* <Food /> */}
                 <Pacman />
                 <Ghost />
-                {/* <Ghost /> */}
-                {/* <Ghost /> */}
             </div>
         )
     }

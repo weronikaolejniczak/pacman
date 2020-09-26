@@ -25,6 +25,7 @@ class Ghost extends Component {
 }
 
 Ghost.defaultProps = {
+    color: 'red',
     step: 50, // 50px
     size: 50, // ghost size: 50x50px
     // TODO: move to config
