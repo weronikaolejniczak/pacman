@@ -11,10 +11,28 @@ class Pacman extends Component {
         }
     }
 
+    constructor(props) {
+        super(props);
+        // we create a ref to pacman div
+        this.pacmanRef = React.createRef();
+    }
+
+    componentDidMount() {
+        // we focus on our referenced element after component mounts
+        this.pacmanRef.current.focus();
+    }
+
+    handleKeyDown = (event) => {
+        console.log(event.keyCode, event.key);
+    }
+
     render() {
         return (
             <div 
+                ref={this.pacmanRef} // we assign reference
                 className="pacman"
+                tabIndex="0" // focus na elemencie
+                onKeyDown={this.handleKeyDown} // when focused starts handling key down (pressed) events
                 style={this.state.position}
             >
                 <Icon />
