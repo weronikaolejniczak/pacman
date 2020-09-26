@@ -7,6 +7,8 @@ class Board extends Component {
     constructor(props) {
         super(props);
 
+        this.pacmanRef = React.createRef();
+
         this.food = [];
         // calculate the amount of food
         this.amountOfFood = (
@@ -16,6 +18,49 @@ class Board extends Component {
 
         for (let i = 0; i < this.amountOfFood; i++) {
             this['food' + i] = React.createRef();
+        }
+    }
+
+    componentDidMount() {
+        this.intervalFood = setInterval(this.eat, 100);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.intervalFood);
+    }
+
+    eat = () => {
+        const pacmanPos = this.pacmanRef.current.state.position;
+        const pacmanX = pacmanPos.left;
+        const pacmanY = pacmanPos.top;
+        const pacmanSize = this.pacmanRef.current.props.size;
+
+        const pacmanLastX = pacmanX + pacmanSize / 2;
+        const pacmanLastY = pacmanY + pacmanSize / 2;
+
+        for(let i = 0; i <= this.amountOfFood; i++) {
+            const currentFood = this['food' + i].current;
+            if (currentFood) {
+                const currentFoodX = currentFood.state.position.left;
+                const currentFoodY = currentFood.state.position.top;
+                const currentFoodSize = currentFood.props.foodSize;
+                const currentFoodLastX = currentFoodX + currentFoodSize / 2;
+                const currentFoodLastY = currentFoodY + currentFoodSize / 2;
+
+                // due to the delay we also consider last coordinates
+                if (
+                    (pacmanX >= currentFoodX && pacmanX <= currentFoodLastX) 
+                    || (pacmanLastX >= currentFoodX && pacmanLastX <= currentFoodLastX)
+                ) {
+                    if (
+                        (pacmanY >= currentFoodY && pacmanY <= currentFoodLastY)
+                        || (pacmanLastY >= currentFoodY && pacmanLastY <= currentFoodLastY)
+                    ) {
+                        currentFood.ate(); // !hidden
+                        this.props.setScore((value) => value + 1); // increase score
+                    }
+                }
+            }
         }
     }
 
@@ -53,7 +98,7 @@ class Board extends Component {
                 {/* FOOD */}
                 {foods}
                 {/* PACMAN */}
-                <Pacman />
+                <Pacman ref={this.pacmanRef} />
                 {/* GHOSTS */}
                 <Ghost color={'blue'} />
                 <Ghost color={'pink'} />
