@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Pacman, Ghost} from '../';
+import {Pacman, Ghost, Food} from '../';
 import './style.css';
 
 class Board extends Component {
@@ -7,7 +7,7 @@ class Board extends Component {
         return (
             <div className="board">
                 {/* FOOD */}
-                {/* <Food /> */}
+                <Food />
                 {/* PACMAN */}
                 <Pacman />
                 {/* GHOSTS */}
