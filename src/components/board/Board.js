@@ -32,7 +32,7 @@ class Board extends Component {
     eat = () => {
         const pacmanX = this.pacmanRef.current.state.position.left;
         const pacmanY = this.pacmanRef.current.state.position.top;
-        const pacmanSize = this.pacmanRef.current.props.size
+        const pacmanSize = this.pacmanRef.current.props.size;
 
         const pacmanLastX = pacmanX + pacmanSize / 2;
         const pacmanLastY = pacmanY + pacmanSize / 2;
@@ -52,9 +52,9 @@ class Board extends Component {
                     if ((pacmanY >= currentFoodY && pacmanY <= currentFoodLastY)
                         || (pacmanLastY >= currentFoodY && pacmanLastY <= currentFoodLastY)) {
                         if (!currentFood.state.hidden) {
-                        currentFood.ate(); // !hidden
-                        // this.props.increase(); // increase score
-                        this.props.setScore((value) => value + 1)
+                            currentFood.ate(); // !hidden
+                            // increase score
+                            this.props.setScore((value) => value + 1)
                         }
                     }
                 }
