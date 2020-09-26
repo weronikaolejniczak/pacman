@@ -2,6 +2,11 @@ import React, {useState} from 'react';
 import {Header, Board} from './components';
 import './App.css';
 
+/* TODO:
+- Ghost and Pacman collision, collision animation and game over
+- Add Walls
+- Add Pacman lives
+- Start Game, Game Over and Success screens */
 function App() {
   const [score, setScore] = useState(0);
 
