@@ -3,3 +3,22 @@
     width: 50px;
     height: 50px;
 }
+
+/* disables the outline on element focus */
+.pacman:focus {
+    outline: none;
+}
+
+.pacman-right {}
+
+.pacman-left {
+    transform: rotateY(180deg);
+}
+
+.pacman-up {
+    transform: rotate(-90deg);
+}
+
+.pacman-down {
+    transform: rotate(90deg);
+}

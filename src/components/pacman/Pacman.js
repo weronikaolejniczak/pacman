@@ -27,13 +27,15 @@ class Pacman extends Component {
     }
 
     render() {
+        const {direction, position} = this.state;
+
         return (
             <div 
                 ref={this.pacmanRef} // we assign reference
-                className="pacman"
+                className={`pacman pacman-${direction}`}
                 tabIndex="0" // focus na elemencie
                 onKeyDown={this.handleKeyDown} // when focused starts handling key down (pressed) events
-                style={this.state.position}
+                style={position}
             >
                 <Icon />
             </div>
