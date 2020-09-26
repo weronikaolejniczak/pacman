@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Header from './components';
+import {Header, Board} from './components';
 import './App.css';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header score={score} />
-      {/* <Board /> */}
+      <Board />
     </div>
   );
 }

@@ -1,3 +1,4 @@
 import Header from './header/Header';
+import Board from './board/Board';
 
-export default Header;
+export {Header, Board};
