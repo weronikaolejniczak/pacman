@@ -11,9 +11,14 @@ class Food extends Component {
     }
 
     render() {
-        return(
-            <div className="food">
+        const {position, hidden} = this.state;
 
+        return(
+            <div 
+                className={hidden ? "food hidden" : "food"}
+                style={position}
+            >
+                <div className="food-dot" />
             </div>
         );
     }

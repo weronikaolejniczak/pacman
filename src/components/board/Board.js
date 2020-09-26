@@ -7,7 +7,7 @@ class Board extends Component {
         return (
             <div className="board">
                 {/* FOOD */}
-                <Food />
+                <Food position={{top: 50, left: 50}} />
                 {/* PACMAN */}
                 <Pacman />
                 {/* GHOSTS */}
